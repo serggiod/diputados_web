@@ -2,9 +2,9 @@
 
 	session_start();
 
-	define('baseUrl','http://www.legislaturajujuy.gov.ar/diputados_web');
-	define('basePath','/var/www/app/diputados_web');
-	define('legUrl','http://www.legislaturajujuy.gov.ar');
+	define('baseUrl','/diputados_web');
+	define('basePath','/var/www/apps/diputados_web');
+	define('legUrl','/web/home');
 	define('eReporing','E_ALL');
 	define('dbDriv','mysql');
 	define('dbHost','localhost');

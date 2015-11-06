@@ -17,8 +17,8 @@ window.diputado={
 	usrId:0,
 	usrNm:null,
 	usrDir:null,
-	appUrl:'http://www.legislaturajujuy.gov.ar/diputados_web',
-	legUrl:'http://www.legislaturajujuy.gov.ar',
+	appUrl:'/diputados_web',
+	legUrl:'/web/home',
 	init:function(id){
 		window.diputado.usrId = id;
 		window.diputado.data();
