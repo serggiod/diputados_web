@@ -1,0 +1,1 @@
+		<item id="formpartes" text="Administrar Partes de Prensa" img="partes.png" imgdis="partes.png"/>

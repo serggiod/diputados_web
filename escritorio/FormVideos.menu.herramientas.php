@@ -1,0 +1,1 @@
+		<item id="formvideos" text="Administrar Galerías de Videos" img="videos.png" imgdis="videos.png"/>
