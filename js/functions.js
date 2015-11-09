@@ -1,3 +1,6 @@
+
+
+/*
 $(window).on('load',function(){
 	$.ajaxSetup({cache:false});
 	uri = window.document.location.toString();
@@ -510,3 +513,4 @@ window.diputado.tools={
 		return remail;
 	}
 }
+*/

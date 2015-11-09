@@ -2,6 +2,10 @@
 
 	*{border:0;margin:0;padding:0;}
 
+	.overlay{position:fixed;z-index:1000;top: 0px;left:0px;height:100%;width:100%;background:#000;opacity:0.7;filter:alpha(opacity=70);-ms-opacity:0.7;-moz-opacity:0.7;-khtml-opacity:0.7;-webkit-opacity:0.7;-o-opacity:0.7;}
+	.cargando{position:fixed;top:50%;left:50%;margin-top:-125px;margin-left:-160px;z-index:2000;}
+
+/*
 	nav{height:22px;}
 	a#inicio{color:#eee;}
 	a#proyectos{color:#eee;}
@@ -30,17 +34,14 @@
 	nav#btn-socials a.youtube-ico { background-position: -114px 0; }
 	nav#btn-socials a.youtube-ico:hover { background-position: -114px bottom; }
 
-	.overlay{position:fixed;z-index:1000;top: 0px;left:0px;height:100%;width:100%;background:#000;opacity:0.7;filter:alpha(opacity=70);-ms-opacity:0.7;-moz-opacity:0.7;-khtml-opacity:0.7;-webkit-opacity:0.7;-o-opacity:0.7;display:none;}
-	.cargando{position:fixed;top:50%;left:50%;margin-top:-125px;margin-left:-160px;z-index:2000;display:none;}
-
-	/* msgError,msgInfo,msgSuccess,msgAlert*/
+    msgError,msgInfo,msgSuccess,msgAlert
 	#msgError,#msgInfo,#msgSuccess,#msgAlert  {display:block;padding:5px;width:auto;font-family:CaviarDreams;font-size:16px;background-repeat: no-repeat;background-position: 10px center;text-align:left;}
 	#msgError  {color:#D8000C;border:1px solid #D8000C;background-color:#FFCECE;}
 	#msgInfo   {color:#00529B;border:1px solid #00529B;background-color:#BDE5F8;}
 	#msgSuccess{color:#4F8A10;border:1px solid #4F8A10;background-color:#DFF2BF;}
 	#msgAlert  {color:#9F6000;border:1px solid #9F6000;background-color:#FEEFB3;}
 
-	/* Interface leer mas */
+	Interface leer mas
 	.leer_mas{
 		display:none;
 		top:60px;
@@ -62,7 +63,7 @@
 		float:right;
 	}
 
-	/* Fotografias mas */
+	Fotografias mas
 	div#fotos{
 		display:none;
 		top:60px;
@@ -109,7 +110,7 @@
 		color:#fff;
 	}
 
-	/* Videos mas */
+	Videos mas
 	div#videos{
 		display:none;
 		top:60px;
@@ -166,4 +167,5 @@
 	#footer p.copy a { font-size: 10px; color:#00acef;  line-height: 10px; text-decoration: underline; }
 	#footer p.copy a:hover { text-decoration: none; }
 	#footer p.copy span { padding:0 7px; }
+*/
 }
