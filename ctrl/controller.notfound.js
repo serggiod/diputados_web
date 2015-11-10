@@ -1,13 +1,12 @@
-angular.module('diputadosweb')
-.controller(
-	'notFoundCtrl',
-	function($scope,$http,$location){
-		// Funcion: Inicializar
-		$scope.init = function(){
-			console.log('Hola Mundo');
-			$('#cargando').hide();
-			$['#overlay'].hide();
-		};
-		$scope.init();
-   	}
-);
+angular
+	.module('diputadosweb')
+	.controller(
+		'notFoundCtrl',
+		function($scope,$http,$location){
+			
+			$scope.fotografia = 'indefinido.jpg';
+			$scope.nombre     = 'Nombre';
+			$scope.apellido   = 'Apellido';
+
+	   	}
+	);
