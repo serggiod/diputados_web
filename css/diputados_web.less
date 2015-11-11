@@ -1,193 +1,66 @@
-@bcolor:#4a4a4a;
-.all{
+@cbase:#242424;
+@cgreen:#38c205;
+@cgrey1:#8d8d84;
+@cgrey2:#d4d4d2;
+@cgrey3:#e8e8e5;
+@cgrey4:#393933;
+.allZero{
 	border:0;
 	margin:0;
 	padding:0;
 }
 .body{
-	background-color:@bcolor;
-	.all();
+	background-color:@cbase;
+	.allZero();
+}
+.sep1{
+	.allZero();
+	width:100%;
+	height:10px;
+	background-color:@cgreen;
 }
 .header{
-
+	.allZero();
+	display:block;
+	background-color:@cgrey2;
+	overflow:hidden;
+	width:100%;
 }
 .section{
-
+	.allZero();
+	display:block;
+	background-color:@cgrey3;
+	overflow: hidden;
+	width:100%;
+}
+.section2{
+	.allZero();
+	display:block;
+	background-color:@cgrey2;
+	overflow: hidden;
+	width:100%;
 }
 .footer{
-	
+	.allZero();
+	display:block;
+	background-color:@cgrey4;
+	overflow::hidden;
+	width:100%;	
+	height:150px;
 }
-
-
-/*
-@media screen{
-
-	*{border:0;margin:0;padding:0;}
-
-	.overlay{position:fixed;z-index:1000;top: 0px;left:0px;height:100%;width:100%;background:#000;opacity:0.7;filter:alpha(opacity=70);-ms-opacity:0.7;-moz-opacity:0.7;-khtml-opacity:0.7;-webkit-opacity:0.7;-o-opacity:0.7;}
-	.cargando{position:fixed;top:50%;left:50%;margin-top:-125px;margin-left:-160px;z-index:2000;}
-
-/*
-	nav{height:22px;}
-	a#inicio{color:#eee;}
-	a#proyectos{color:#eee;}
-	a#prensa{color:#eee;}
-	a#fotos{color:#eee;}
-	a#videos{color:#eee;}
-	a#inicio:hover{color:#fff;background-color:#666;}
-	a#proyectos:hover{color:#fff;background-color:#666;}
-	a#prensa:hover{color:#fff;background-color:#666;}
-	a#fotos:hover{color:#fff;background-color:#666;}
-	a#videos:hover{color:#fff;background-color:#666;}
-
-	header{width:100%;height:170px;position:relative;background-color:#666;border-bottom:2px solid #999;}
-	h1#nombre{font-size:24px;top:80px;left:20px;position:absolute;}
-	h1#nombre a{text-decoration:none;}
-	img#fotografia{height:120px;top:30;right:20px;position:absolute;}
-
-	nav#btn-socials{height:30px;overflow:hidden;}
-	nav#btn-socials a {width:31px; height:33px; float:left; margin-left: 6px;  background: url(diputados_web/socials.png) no-repeat 0 0; font-size: 0; line-height: 0; text-indent: -4000px; }
-	nav#btn-socials a.paginaweb-ico { background-position: 0 0; }
-	nav#btn-socials a.paginaweb-ico:hover { background-position:0 bottom; }
-	nav#btn-socials a.facebook-ico { background-position:-37px 0; }
-	nav#btn-socials a.facebook-ico:hover { background-position:-37px bottom; }
-	nav#btn-socials a.twitter-ico { background-position:-75px 0; }
-	nav#btn-socials a.twitter-ico:hover { background-position:-75px bottom; }
-	nav#btn-socials a.youtube-ico { background-position: -114px 0; }
-	nav#btn-socials a.youtube-ico:hover { background-position: -114px bottom; }
-
-    msgError,msgInfo,msgSuccess,msgAlert
-	#msgError,#msgInfo,#msgSuccess,#msgAlert  {display:block;padding:5px;width:auto;font-family:CaviarDreams;font-size:16px;background-repeat: no-repeat;background-position: 10px center;text-align:left;}
-	#msgError  {color:#D8000C;border:1px solid #D8000C;background-color:#FFCECE;}
-	#msgInfo   {color:#00529B;border:1px solid #00529B;background-color:#BDE5F8;}
-	#msgSuccess{color:#4F8A10;border:1px solid #4F8A10;background-color:#DFF2BF;}
-	#msgAlert  {color:#9F6000;border:1px solid #9F6000;background-color:#FEEFB3;}
-
-	Interface leer mas
-	.leer_mas{
-		display:none;
-		top:60px;
-		left:20px;
-		right:20px;
-		position:absolute;
-		background-color:#fff;
-		border-top:20px solid #999;
-		z-index:1000;
-		clear:both;
-	}
-	.leer_mas_noticia{
-		width:60%;
-		padding:20px;
-		float:left;
-	}
-	.leer_mas_mediabar{
-		width:30%;
-		float:right;
-	}
-
-	Fotografias mas
-	div#fotos{
-		display:none;
-		top:60px;
-		left:20px;
-		right:20px;
-		position:absolute;
-		background-color:#000;
-		z-index:1000;
-		clear:both;
-	}
-	div#fotos_slider_container{
-		width:100%;
-		height:400px;
-		position:relative;
-		overflow:hidden;
-	}
-	a#fotos_slider_container_movel,a#fotos_slider_container_mover{
-		display:block;
-		width:32px;
-		position:absolute;
-		top:50%;
-		z-index:1010;
-		text-align:center;
-		color:#fff;
-		font-weight:bold;
-		font-size:32px;
-		text-decoration:none;
-	}
-	a#fotos_slider_container_movel{
-		left:0;
-	}
-	a#fotos_slider_container_mover{
-		right:0px;
-	}
-	div#fotos_slider_content{
-		top:0;
-		left:0;
-		position:absolute;
-		z-index:1005;
-	}
-	div#fotos_describe{
-		padding:5px;
-		background-color:#333;
-		color:#fff;
-	}
-
-	Videos mas
-	div#videos{
-		display:none;
-		top:60px;
-		left:20px;
-		right:20px;
-		position:absolute;
-		background-color:#000;
-		z-index:1000;
-		clear:both;
-	}
-	div#videos_slider_container{
-		width:100%;
-		min-height:400px;
-		position:relative;
-		overflow:hidden;
-	}
-	a#videos_slider_container_movel,a#videos_slider_container_mover{
-		display:block;
-		width:32px;
-		position:absolute;
-		top:50%;
-		z-index:1010;
-		text-align:center;
-		color:#fff;
-		font-weight:bold;
-		font-size:32px;
-		text-decoration:none;
-	}
-	a#videos_slider_container_movel{
-		left:0;
-	}
-	a#videos_slider_container_mover{
-		right:0px;
-	}
-	div#videos_slider_content{
-		top:0;
-		left:0;
-		position:absolute;
-		z-index:1005;
-	}
-	div#videos_describe{
-		padding:5px;
-		background-color:#333;
-		color:#fff;
-	}
-	#footer { background: url(diputados_web/footer-border.png) repeat-x 0 0; padding: 18px 20px 18px 10px; }
-	.footer-nav { float: left; }
-	.footer-nav ul { list-style:none; list-style-position: outside; }
-	.footer-nav ul li { float: left; border-right: 1px solid #afaca9;  padding:0 10px; font-size: 10px; line-height: 10px; }
-	.footer-nav ul li a { color: #666; }
-	.footer-nav ul li a:hover { color: #333; text-decoration: none; }
-	.footer-nav ul li.last { border-right: 0; }
-	#footer p.copy { font-size: 10px; color:#afaca9; line-height: 10px; float: right; }
-	#footer p.copy a { font-size: 10px; color:#00acef;  line-height: 10px; text-decoration: underline; }
-	#footer p.copy a:hover { text-decoration: none; }
-	#footer p.copy span { padding:0 7px; }
-*/
+.overlay{
+	position:fixed;
+	z-index:1000;
+	top:0px;
+	left:0px;
+	height:100%;
+	width:100%;
+	background:#000;
+	opacity:0.7;
+	filter:alpha(opacity=70);
+	-ms-opacity:0.7;
+	-moz-opacity:0.7;
+	-khtml-opacity:0.7;
+	-webkit-opacity:0.7;
+	-o-opacity:0.7;
 }

@@ -9,3 +9,4 @@ angular
             .otherwise({redirectTo:'/'});
         }
     );
+angular.fotografia='indefinido.jpg';

@@ -4,91 +4,30 @@
 		<meta charset="utf-8" />
 		<title>Diputados Web</title>
 		
-		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="icon" type="image/icon" href="imgs/jujuy.ico" />
-		<link rel="shortcut icon" type="image/icon" href="imgs/jujuy.ico" />
-		<link rel="address bar icon" type="image/icon" href="imgs/jujuy.ico">
+		<link rel="icon" type="image/icon" href="imgs/jujuy.png" />
+		<link rel="shortcut icon" type="image/icon" href="imgs/jujuy.png" />
+		<link rel="address bar icon" type="image/icon" href="imgs/jujuy.png">
 
 		<!-- Less Style -->
 		<link rel="stylesheet/less" type="text/css" href="css/diputados_web.less"/>
-		<script type="text/javascript"> less={env:'production'}; </script>
+		<script type="text/javascript"> less={env:'development'}; </script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
 		<!-- /Less Style -->
 
 	</head>
 	<body class="container container-fluid body">
 
-
-		<!-- Header -->
-		<haader class="header">
-			<div class="row jumbotron">
-				<div class="col-md-6"><img src="{{fotografia}}"/></div>
-				<div class="col-md-6">{{nombre}} {{apellido}}</div>
-			</div>
-			
-			
-		</haader>
-		<!-- /Header -->
-
-		<!-- Vizualizador -->
-		<section ng-view class="section">
-			<center>
-				<!-- Interface para Cargando. -->
+		<!-- Loading -->
+		<center>
+			<div id="overlay" class="overlay">
 				<img alt="Cargando..." src="imgs/cargando.gif" id="cargando" class="cargando">
-				<!-- Interface para Overlay -->
-				<div id="overlay" class="overlay"></div>
-			</center>			
-		</section>
-		<!-- /Visualizador -->
-
-		<!-- Footer. -->
-		<footer class="footer">
-			
-			<div class="row">
-
-				<div class="col-md-4">
-					<h3>Datos del Perfil</h3>
-					<p>
-						<strong>Nombre:</strong> <span id="perfil_nombre"></span><br>
-						<strong>Bloque:</strong> <span id="perfil_bloque"></span><br>
-						<strong>Mandato:</strong> <span id="perfil_mandato"></span><br>
-						<strong>Email:</strong> <span id="perfil_email"></span><br>
-						<strong>Telefono:</strong> <span id="perfil_telefono"></span><br>
-						<strong>Pagina web:</strong> <span id="perfil_paginaweb"></span><br>
-						<strong>Facebook:</strong> <span id="perfil_facebook"></span><br>
-						<strong>Twitter:</strong> <span id="perfil_twitter"></span><br>
-						<strong>Youtube:</strong> <span id="perfil_youtube"></span><br>
-					</p> 
-				</div>
-
-				<div class="col-md-4">
-					<h3>Comisiones que integra</h3>
-					<ul id='diputado_comisiones'></ul>
-				</div>
-
-				<div class="col-md-4">
-					<form id="fcontacto">
-						<h3>Formulario de Contacto</h3>
-						<div id="fconsole" class="fconsole"></div>
-						<input type="text" id="cnombre" name="cnombre" value="" class="form-control" placeholder="Nombre completo..."/>
-						<br>
-						<input type="text" id="cemail" name="cemail" value="" class="form-control" placeholder="su_email@suservidor.com" />
-						<br>
-						<input type="text" id="casunto" name="casunto" value="" class="form-control" placeholder="Asunto..." />
-						<br>
-						<textarea id="cmensaje" name="cmensaje" class="form-control" placeholder="Mensaje..."></textarea>
-						<center>
-							<a id="creset" name="creset" value="Limpiar" class="btn btn-warning fbutton" href="javascript: window.diputado.contacto.reset();">Limpiar</a>
-						 	<a id="submit" name="csubmit" value="Enviar" class="btn btn-success submit fbutton" href="javascript: window.diputado.contacto.submit()">Enviar</a>
-						</center>
-					</form>
-				</div>	
-
 			</div>
+		</center>
+		<!-- /Loading -->
 
-		</footer>
-		<!-- /Footer. -->
+
 
 		<!-- Libreria JS: JQuery -->
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -106,98 +45,103 @@
 		<script src="app/application.js"></script>
 
 		<!-- Controladores -->
-		<script src="ctrl/controller.index.js"></script>		
+		<script src="ctrl/controller.index.js"></script>
+		<script src="ctrl/controller.diputado.js"></script>
 		<script src="ctrl/controller.notfound.js"></script>
 
 
+		<!-- Separador1 -->
+		<div class="sep1"></div>
+		<!-- /Separador1 -->
 
-		<!-- Inicio de Barra de Navegacion -->
-		<!--
-		<nav class="navbar navbar-default navbar-inverse" role="navigation">
-			<img id="fotografia">
-			<div class="navbar-header">
-			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-			      <span class="sr-only">Desplegar navegación</span>
-			      <span class="icon-bar"></span>
-			      <span class="icon-bar"></span>
-			      <span class="icon-bar"></span>
-			    </button>
-			    <a id="navbar-brand" class="navbar-brand" href="#">Legislatura de Jujuy</a>
+		<!-- Header -->
+		<haader class="header">
+			<div class="row" ng-controller="diputadoCtrl">
+				<div class="col-xs-6">
+					<img src="imgs/{{fotografia}}" class="img-responsive"/>
+				</div>
+				<div class="col-xs-6">
+					<h1>
+						<strong>{{apellido}}</strong>
+						<br/>
+						<small>{{nombre}}</small>
+					</h1>
+					<h3>{{mandato}}</h3>
+				</div>
 			</div>
-			<div class="collapse navbar-collapse navbar-ex1-collapse">
-				<a id="inicio" class="btn navbar-btn btn-inverse" href="javascript: window.diputado.navbar.inicio();">Inicio</a>
-				<a id="proyectos" class="btn navbar-btn btn-inverse" href="javascript: window.diputado.navbar.proyectos();">Proyectos</a>
-				<a id="prensa" class="btn navbar-btn btn-inverse" href="javascript: window.diputado.navbar.prensa();">Prensa</a>
-				<a id="fotos" class="btn navbar-btn btn-inverse" href="javascript: window.diputado.navbar.fotografias();">Fotograf&iacute;as</a>
-				<a id="videos" class="btn navbar-btn btn-inverse" href="javascript: window.diputado.navbar.videos();">Videos</a>
-			</div>
+		</haader>
+		<!-- /Header -->
+
+		<!-- Menu -->
+		<nav class="navbar navbar-default">
+			<a class="navbar-brand" href="#/">Inicio</a>
+			<a class="navbar-brand" href="#/proyectos">Proyectos</a>
+			<a class="navbar-brand" href="#/prensa">Prensa</a>
+			<a class="navbar-brand" href="#/fotografias">Fotograf&iacute;as</a>
+			<a class="navbar-brand" href="#/videos">Videos</a>
 		</nav>
-		<!-- Fin de Barra de Navegacion -->
+		<!-- /Menu -->
 
-		<!-- Inicio de Botones Sociales 
-		<nav id="btn-socials"></nav>
-		<!-- Fin de Botones Sociles -->
+		<!-- Vizualizador -->
+		<section ng-view class="section"></section>
+		<!-- /Visualizador -->
 
-
-		<!-- Inicio de Resumen de Noticias
-		<section id="diputado_tres_noticias" class="row"></section>
-		<!-- Fin de Resumen de Noticias -->
-
-		<!-- Inicio de Entradas en Tres Columnas
-		<section class="row">
+		<!-- Section2 -->
+		<section class="section2">
 			
-			
+			<div class="row" ng-controller="diputadoCtrl">
+
+				<div class="col-xs-4">
+					<h3>Perfil</h3>
+					<p>
+						<strong>Nombre:</strong> {{apellido}} {{nombre}}<br>
+						<strong>Bloque:</strong> {{bloque}}<br>
+						<strong>Mandato:</strong> {{mandato}}<br>
+						<strong>Email:</strong> <a href="mailto: {{email}}" target="__blank">{{email}}</a><br>
+						<strong>Telefono:</strong> {{telefono}}</span><br>
+						<strong>Pagina web:</strong> <a href="{{paginaweb}}" target="__blank">{{paginaweb}}</a><br>
+						<strong>Facebook:</strong> <a href="{{facebook}}" target="__blank">{{facebook}}</a><br>
+						<strong>Twitter:</strong> <a href="{{twitter}}" target="__blank">{{twitter}}</a><br>
+						<strong>Youtube:</strong> <a href="{{youtube}}" target="__blank">{{youtube}}</a><br>
+					</p> 
+				</div>
+
+				<div class="col-xs-4">
+					<h3>Comisiones</h3>
+					<ul id='diputado_comisiones'></ul>
+				</div>
+
+				<div class="col-xs-4">
+					<h3>Contacto</h3>
+						<input type="text" id="cnombre" name="cnombre" value="" class="form-control" placeholder="Nombre completo..."/>
+						<input type="text" id="cemail" name="cemail" value="" class="form-control" placeholder="su_email@suservidor.com" />
+						<input type="text" id="casunto" name="casunto" value="" class="form-control" placeholder="Asunto..." />
+						<textarea id="cmensaje" name="cmensaje" class="form-control" placeholder="Mensaje..."></textarea>
+						<center>
+							<a value="Limpiar" class="btn btn-danger">Cancelar</a>
+						 	<a value="Enviar" class="btn btn-success">Enviar</a>
+						</center>
+					</form>
+				</div>	
+
+			</div>
+
 		</section>
-		<!-- Fin de Entradas en Tres Columnas -->
+		<!-- /Section2. -->
 
-		<!-- Inicio de Footer
-		<div id="footer">
-			<div class="footer-nav">
-				<ul>
-					<li><a id="iniciob" href="javascript: window.diputado.navbar.inicio();">Inicio</a></li>
-					<li><a id="proyectosb" href="javascript: window.diputado.navbar.proyectos();">Proyectos</a></li>
-					<li><a id="prensab" href="javascript: window.diputado.navbar.prensa();">Prensa</a></li>
-					<li><a id="fotosb" href="javascript: window.diputado.navbar.fotografias();">Fotograf&iacute;as</a></li>
-					<li><a id="videosb" href="javascript: window.diputado.navbar.videos();">Videos</a></li>
-				</ul>
-			</div>
-			<p class="copy">&copy; Copyright 2013 <strong>Legislatura de Jujuy</strong> | Todos los derechos reservados.<span>|</span></p>
-		</div>
-		<!-- Fin de Footer -->
-
-		
-		<!-- Interface Modal para Proyectos.
-		<div id="modalproyectos" class="modalproyectos">
-			<iframe id="miframe"></iframe>
-		</div>
-		
-
-		<!-- Interface para Leer Mas 
-		<div id="leer_mas" class="leer_mas">
-			<div id="leer_mas_noticia" class="leer_mas_noticia"></div>
-			<div id="leer_mas_mediabar" class="leer_mas_mediabar"></div>
-		</div>
-
-		<!-- Interface para Fotografias Mas 
-		<div id="fotos" class="fotos">
-			<div id="fotos_slider_container">
-				<a id="fotos_slider_container_movel" href="javascript: window.diputado.fotografias.slider.moveLeft();"><<</a>
-				<a id="fotos_slider_container_mover" href="javascript: window.diputado.fotografias.slider.moveRight();">>></a>
-				<div id="fotos_slider_content"></div>
-			</div>
-			<div id="fotos_describe"></div>
-		</div>
-
-		<!-- Interface para Videos Mas 
-		<div id="videos">
-			<div id="videos_slider_container">
-				<a id="fotos_slider_container_movel" href="javascript: window.diputado.videos.slider.moveLeft();"><<</a>
-				<a id="fotos_slider_container_mover" href="javascript: window.diputado.videos.slider.moveRight();">>></a>
-				<div id="videos_slider_content"></div>
-			</div>
-			<div id="videos_describe"></div>
-		</div>
-		-->
+		<!-- Footer -->
+		<footer class="">
+			<a href="#/">Inicio</a>
+			|
+			<a href="#/proyectos">Proyectos</a>
+			|
+			<a href="#/prensa">Prensa</a>
+			|
+			<a href="#/fotografias">Fotograf&iacute;as</a>
+			|
+			<a href="#/videos">Videos</a>
+		</footer>
+		<!-- /Footer -->
 
 	</body>
 </html>
